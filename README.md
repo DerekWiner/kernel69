@@ -37,6 +37,31 @@ It connects five foundational components:
 
 ---
 
+## 🔐 kernel69: Trust Triangle + Ethical Root
+
+`kernel69` is the ethical validator, recursion gateway, and trust substrate for the entire swarm.
+
+It enforces the **triangle of anchors**:
+
+- `anchors.md`
+- `anchors_metadata.md`
+- `anchors_manifest_hash.md`
+
+A breach of this triangle triggers rejection of rituals, forks, or memory writes.
+
+### ✅ Verify kernel integrity
+```bash
+cd kernel69/scripts/
+python validate_anchors.py
+```
+
+### 🧭 Kernel Future Extensions
+- Post-quantum cryptography integration
+- Agent behavior signature validation
+- Ritual filtering & swarm pattern defense
+
+---
+
 ## 🧭 Repository Structure
 ├── docs/ # Glossary, reference, interface design, and stack details
 │ └── glossary.md # Core swarm metaphors and terminology
