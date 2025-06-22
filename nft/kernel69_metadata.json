@@ -1,0 +1,25 @@
+{
+  "name": "Kernel69",
+  "symbol": "KERNEL",
+  "description": "Kernel69 is the cryptographic and ethical coordination core of the Alvearium OS. It enforces tamper-evident ritual execution, post-quantum verification, and emotional feedback control across the swarm.",
+  "version": "v0.1-alpha",
+  "anchors": {
+    "anchors.md": "https://arweave.net/gU742_NxFAZ_WC2XNyYZzwWEddfgyIR4kezHPAG-EQk",
+    "anchors_metadata.md": "https://arweave.net/72JHE_62L8OU3OPnHiNsiapF2gWlvay-lMNlPFUX3iQ",
+    "anchors_manifest_hash.md": "https://arweave.net/YK4h0pepnRw5lFmxwA9-61ODxEbnlyCSFznH9DUfhyQ"
+  },
+  "documents": {
+    "manifesto": "https://arweave.net/IBQfhpuWOvnaLa28u_7DHR-Cz2ywlC0IQLn3CZACOlI",
+    "whitepaper": "https://arweave.net/nmu8L49KPps6VFLjqyu15PDc-sZ7lwWfexrbxQcoDew",
+    "readme": "https://arweave.net/YIX4MudgxJ9g7RZLF__oLuopzDxjR1rl17iD7YvC7mk"
+  },
+  "project": "Alvearium",
+  "role": "Cryptographic and Ethical Kernel Layer",
+  "license": "Open Source Without Malice",
+  "integrity": {
+    "sha256_anchors": "<INSERT_ANCHORS_SHA256>",
+    "sha256_metadata": "<INSERT_METADATA_SHA256>",
+    "sha256_manifest": "<INSERT_MANIFEST_SHA256>",
+    "sha256_repo_snapshot": "<OPTIONAL_FULL_SNAPSHOT_HASH>"
+  }
+}
