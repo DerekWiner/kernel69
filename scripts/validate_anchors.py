@@ -4,6 +4,13 @@
 import hashlib
 import os
 
+
+# Canonical kernel marker reference
+KERNEL_MARKER = {
+    "json": "https://arweave.net/P-y9Y4dhL6DC33xRP9h_auw-5e49Luiw-jYnCbn6ztI",
+    "md": "https://arweave.net/fNbscqGhQ9EMcrRzQScop8heRSKpT6Z0dgf3wkPltGI"
+}
+
 # Define relative paths to the anchor files
 FILES = {
     "anchors.md": "../../alvearium/docs/anchors.md",
@@ -22,7 +29,10 @@ def sha256_file(path):
     with open(path, 'rb') as f:
         return hashlib.sha256(f.read()).hexdigest()
 
-def validate():
+def validate()
+    print("\n[MARKER] Kernel Marker JSON:", KERNEL_MARKER["json"])
+    print("[MARKER] Kernel Marker MD:  ", KERNEL_MARKER["md"])
+:
     print("[+] Validating Alvearium Anchors")
     for label, path in FILES.items():
         if not os.path.exists(path):
@@ -43,3 +53,6 @@ def validate():
 
 if __name__ == "__main__":
     validate()
+    print("\n[MARKER] Kernel Marker JSON:", KERNEL_MARKER["json"])
+    print("[MARKER] Kernel Marker MD:  ", KERNEL_MARKER["md"])
+
