@@ -56,3 +56,5 @@ if __name__ == "__main__":
     print("\n[MARKER] Kernel Marker JSON:", KERNEL_MARKER["json"])
     print("[MARKER] Kernel Marker MD:  ", KERNEL_MARKER["md"])
 
+INCEPTION_REGISTRY_TX = "q4uB75mBr5YpgpEL1VOzG42PxtqYB5XwuNbkIExCVAc"
+print(f"[INFO] Referencing Inception Registry → https://arweave.net/{INCEPTION_REGISTRY_TX}")
