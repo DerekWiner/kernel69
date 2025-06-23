@@ -19,6 +19,12 @@ SWARM_GENESIS = {
     "md": "https://arweave.net/cECar7wYfFsxjxGTLDBnyZoMZDQm6hUXQvPYLDBrhYY"
 }
 
+# Kernel Marker Declaration
+KERNEL_MARKER = {
+    "json": "https://arweave.net/P-y9Y4dhL6DC33xRP9h_auw-5e49Luiw-jYnCbn6ztI",
+    "md": "https://arweave.net/fNbscqGhQ9EMcrRzQScop8heRSKpT6Z0dgf3wkPltGI"
+}
+
 def get_sha256(file_path):
     with open(file_path, "rb") as f:
         content = f.read()
@@ -62,6 +68,8 @@ def gate_ritual(ritual_input):
     print("[OK] Ritual approved for:", agent)
     print("[REF] Genesis (JSON):", SWARM_GENESIS['json'])
     print("[REF] Genesis (MD)  :", SWARM_GENESIS['md'])
+    print("[MARKER] Kernel Marker JSON:", KERNEL_MARKER['json'])
+    print("[MARKER] Kernel Marker MD:  ", KERNEL_MARKER['md'])
     return True
 
 if __name__ == "__main__":
