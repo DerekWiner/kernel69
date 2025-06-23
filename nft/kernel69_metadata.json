@@ -20,6 +20,5 @@
     "sha256_anchors": "2b841468e371540aed9c9b5c77c12235ad7f5474156b48f2fcfaf49f2714389b",
     "sha256_metadata": "0d17511928e7b41a05ef66e883446089b8c4ac6eb16d467fec754439cd53c7c2",
     "sha256_manifest": "e70f2dad191ea8702fa6653e089d0abe140653137aeb9e8864224353881b02ab"
-    "sha256_repo_snapshot": "<OPTIONAL_FULL_SNAPSHOT_HASH>"
   }
 }
