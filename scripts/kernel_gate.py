@@ -1,63 +1,68 @@
 # kernel69/scripts/kernel_gate.py
-# Ritual validator: checks if trust triangle and agent linkages are valid before allowing action
+# Validates anchors and agents before allowing a ritual to proceed
 
+import json
 import hashlib
 import os
-import json
 
-ANCHOR_PATH = "../../alvearium/docs/anchors_manifest_hash.md"
-TRUSTED_HASH = "079750372369569155c237157400a53d49df62550e3a5a57b3c30a9026f5c74b"
-AGENTS_REGISTRY = "../../hive.bnb/scripts/agents_sample.json"
+# Path to anchors_manifest_hash.md (kernel trust hash file)
+MANIFEST_PATH = "../../alvearium/docs/anchors_manifest_hash.md"
+AGENTS_FILE = "../../hive.bnb/scripts/agents_sample.json"
 
-# Simulated ritual input (in reality, this would be parsed or received on-chain)
-ritual_input = {
-    "agent": "0xBEEf1234567890abcdef1234567890abcdefBEEF",
-    "action": "spawn_drone",
-    "manifest": "YK4h0pepnRw5lFmxwA9-61ODxEbnlyCSFznH9DUfhyQ"
-}
+# Trusted SHA-256 hash of anchors_manifest_hash.md
+TRUSTED_HASH = "e70f2dad191ea8702fa6653e089d0abe140653137aeb9e8864224353881b02ab"
 
-def sha256_file(path):
-    with open(path, 'rb') as f:
-        return hashlib.sha256(f.read()).hexdigest()
+def get_sha256(file_path):
+    with open(file_path, "rb") as f:
+        content = f.read()
+    return hashlib.sha256(content).hexdigest()
 
-def validate_anchor():
-    if not os.path.exists(ANCHOR_PATH):
-        print("[FAIL] anchors_manifest_hash.md not found.")
+def validate_anchors():
+    print("[+] Validating Alvearium Anchors")
+    if not os.path.exists(MANIFEST_PATH):
+        print("[ERROR] Manifest file missing")
         return False
 
-    local_hash = sha256_file(ANCHOR_PATH)
-    return local_hash == TRUSTED_HASH
+    actual = get_sha256(MANIFEST_PATH)
+    print("Expected:", TRUSTED_HASH)
+    print("Actual:  ", actual)
+    return actual == TRUSTED_HASH
 
-def validate_agent(agent_address):
-    if not os.path.exists(AGENTS_REGISTRY):
-        print("[FAIL] agents_sample.json not found.")
+def load_agents():
+    if not os.path.exists(AGENTS_FILE):
+        print("[ERROR] Agent registry not found")
+        return {}
+    with open(AGENTS_FILE, "r") as f:
+        return json.load(f)
+
+def gate_ritual(ritual_input):
+    print("[+] Gating Ritual:", ritual_input.get("ritual"))
+
+    manifest_hash = ritual_input.get("manifest")
+    if manifest_hash != TRUSTED_HASH:
+        print("[FAIL] Ritual manifest does not match trusted hash.")
         return False
 
-    with open(AGENTS_REGISTRY, 'r') as f:
-        agents = json.load(f)
-
-    agent = agents.get(agent_address)
-    if not agent:
-        print(f"[FAIL] Unknown agent {agent_address}")
+    agent = ritual_input.get("agent")
+    agents = load_agents()
+    if agent not in agents:
+        print("[FAIL] Agent not found in registry")
         return False
-    if not agent['active']:
-        print(f"[FAIL] Agent {agent_address} is inactive")
+    if not agents[agent].get("active", False):
+        print("[FAIL] Agent is inactive")
         return False
 
+    print("[OK] Ritual approved for:", agent)
     return True
 
-def kernel_gate():
-    print("[+] Kernel Gate Initiated")
-
-    if not validate_anchor():
-        print("❌ Trust triangle invalid. Ritual rejected.")
-        return
-
-    if not validate_agent(ritual_input['agent']):
-        print("❌ Agent invalid. Ritual rejected.")
-        return
-
-    print(f"✅ Ritual '{ritual_input['action']}' approved for agent {ritual_input['agent']}")
-
 if __name__ == "__main__":
-    kernel_gate()
+    if not validate_anchors():
+        print("[FAIL] Anchor validation failed")
+    else:
+        # Simulated ritual request input
+        ritual_input = {
+            "ritual": "spawn_drone",
+            "agent": "0xBEEf1234567890abcdef1234567890abcdefBEEF",
+            "manifest": "e70f2dad191ea8702fa6653e089d0abe140653137aeb9e8864224353881b02ab"
+        }
+        gate_ritual(ritual_input)
