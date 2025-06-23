@@ -6,6 +6,8 @@ import hashlib
 import os
 import urllib.request
 
+INCEPTION_REGISTRY = "https://arweave.net/q4uB75mBr5YpgpEL1VOzG42PxtqYB5XwuNbkIExCVAc"
+
 # Path to anchors_manifest_hash.md (kernel trust hash file)
 MANIFEST_PATH = "../../alvearium/docs/anchors_manifest_hash.md"
 AGENTS_FILE = "../../hive.bnb/scripts/agents_sample.json"
