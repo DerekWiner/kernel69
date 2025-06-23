@@ -21,4 +21,8 @@
     "sha256_metadata": "0d17511928e7b41a05ef66e883446089b8c4ac6eb16d467fec754439cd53c7c2",
     "sha256_manifest": "e70f2dad191ea8702fa6653e089d0abe140653137aeb9e8864224353881b02ab"
   }
+  "genesis": {
+    "swarm_genesis_json": "https://arweave.net/IQcAm8Ql9xHX6dXZL28pdyWVdy2A72LxtESLm3cSO1o",
+    "swarm_genesis_md": "https://arweave.net/cECar7wYfFsxjxGTLDBnyZoMZDQm6hUXQvPYLDBrhYY"
+  }
 }
