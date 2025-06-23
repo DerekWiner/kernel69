@@ -13,9 +13,9 @@ FILES = {
 
 # Replace with known trusted hashes
 TRUSTED_HASHES = {
-    "anchors.md": "gU742_NxFAZ_WC2XNyYZzwWEddfgyIR4kezHPAG-EQk",
-    "anchors_metadata.md": "72JHE_62L8OU3OPnHiNsiapF2gWlvay-lMNlPFUX3iQ",
-    "anchors_manifest_hash.md": "YK4h0pepnRw5lFmxwA9-61ODxEbnlyCSFznH9DUfhyQ"
+    "anchors.md": "2b841468e371540aed9c9b5c77c12235ad7f5474156b48f2fcfaf49f2714389b",
+    "anchors_metadata.md": "0d17511928e7b41a05ef66e883446089b8c4ac6eb16d467fec754439cd53c7c2",
+    "anchors_manifest_hash.md": "e70f2dad191ea8702fa6653e089d0abe140653137aeb9e8864224353881b02ab"
 }
 
 def sha256_file(path):
