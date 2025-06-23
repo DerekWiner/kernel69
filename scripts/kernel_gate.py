@@ -70,6 +70,7 @@ def gate_ritual(ritual_input):
     print("[REF] Genesis (MD)  :", SWARM_GENESIS['md'])
     print("[MARKER] Kernel Marker JSON:", KERNEL_MARKER['json'])
     print("[MARKER] Kernel Marker MD:  ", KERNEL_MARKER['md'])
+    print("[INCEPTION] Registry:        ", INCEPTION_REGISTRY)
     return True
 
 if __name__ == "__main__":
