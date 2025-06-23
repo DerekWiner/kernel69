@@ -4,6 +4,7 @@
 import json
 import hashlib
 import os
+import urllib.request
 
 # Path to anchors_manifest_hash.md (kernel trust hash file)
 MANIFEST_PATH = "../../alvearium/docs/anchors_manifest_hash.md"
@@ -11,6 +12,12 @@ AGENTS_FILE = "../../hive.bnb/scripts/agents_sample.json"
 
 # Trusted SHA-256 hash of anchors_manifest_hash.md
 TRUSTED_HASH = "e70f2dad191ea8702fa6653e089d0abe140653137aeb9e8864224353881b02ab"
+
+# Swarm Genesis Reference
+SWARM_GENESIS = {
+    "json": "https://arweave.net/IQcAm8Ql9xHX6dXZL28pdyWVdy2A72LxtESLm3cSO1o",
+    "md": "https://arweave.net/cECar7wYfFsxjxGTLDBnyZoMZDQm6hUXQvPYLDBrhYY"
+}
 
 def get_sha256(file_path):
     with open(file_path, "rb") as f:
@@ -53,6 +60,8 @@ def gate_ritual(ritual_input):
         return False
 
     print("[OK] Ritual approved for:", agent)
+    print("[REF] Genesis (JSON):", SWARM_GENESIS['json'])
+    print("[REF] Genesis (MD)  :", SWARM_GENESIS['md'])
     return True
 
 if __name__ == "__main__":
@@ -63,6 +72,6 @@ if __name__ == "__main__":
         ritual_input = {
             "ritual": "spawn_drone",
             "agent": "0xBEEf1234567890abcdef1234567890abcdefBEEF",
-            "manifest": "e70f2dad191ea8702fa6653e089d0abe140653137aeb9e8864224353881b02ab"
+            "manifest": TRUSTED_HASH
         }
         gate_ritual(ritual_input)
